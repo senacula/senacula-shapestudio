@@ -10,7 +10,7 @@ own machine. A desktop app for Windows, macOS and Linux, a web UI, a command lin
 server for Senacula, Claude, Cursor or any other agent. It runs on the CPU if that is all
 there is, and uses an NVIDIA GPU when you have one.
 
-Part of the Senacula family, sibling of [Senacula Image Studio](https://github.com/gethivemind/hivemind-imagestudio),
+Part of the Senacula family, sibling of [Senacula Image Studio](https://github.com/senacula/senacula-imagestudio),
 built on the same architecture and the same rules. Design: Hivemind ADR-051; brand: ADR-065 and 066. Licence:
 Apache-2.0.
 
