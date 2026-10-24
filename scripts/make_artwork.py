@@ -1,4 +1,4 @@
-"""Draw the Presidium Shape Studio mark at every size the packaging needs: the Windows .ico,
+"""Draw the Senacula Shape Studio mark at every size the packaging needs: the Windows .ico,
 the MSIX tile set, the Store display logo and the website icons.
 
 The mark (ADR-065): six seats around one table, the chair at the head; Shape Studio puts an

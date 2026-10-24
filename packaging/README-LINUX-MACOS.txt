@@ -1,4 +1,4 @@
-Presidium Shape Studio - macOS and Linux builds
+Senacula Shape Studio - macOS and Linux builds
 ================================================
 
 macOS (Apple silicon)

@@ -53,7 +53,7 @@ def write_stl(path: Path, vertices: np.ndarray, faces: np.ndarray, name: str = "
     )
     rec["n"] = n
     rec["v"] = tri
-    header = f"Presidium Shape Studio {name}".encode()[:80].ljust(80, b"\x00")
+    header = f"Senacula Shape Studio {name}".encode()[:80].ljust(80, b"\x00")
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("wb") as fh:

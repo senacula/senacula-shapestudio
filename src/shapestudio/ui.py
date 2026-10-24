@@ -34,7 +34,7 @@ BRAND = STATIC / "brand"
 
 
 def _draw_icon(size: int) -> bytes:
-    """The Presidium Shape Studio tile (coral, light mark) as a PNG, drawn at 8x and
+    """The Senacula Shape Studio tile (coral, light mark) as a PNG, drawn at 8x and
     downsampled; same geometry as static/brand/shape-tile.svg from the brand kit."""
     from PIL import Image, ImageDraw
 
@@ -98,7 +98,7 @@ def build_app(studio: Studio) -> Starlette:
             {
                 "name": DISPLAY_NAME,
                 "short_name": "Shape Studio",
-                "description": "Presidium Shape Studio: free, local image-to-3D.",
+                "description": "Senacula Shape Studio: free, local image-to-3D.",
                 "start_url": "/",
                 "display": "standalone",
                 "background_color": "#0f1012",
@@ -146,13 +146,13 @@ def build_app(studio: Studio) -> Starlette:
         return JSONResponse(
             {
                 "product": PRODUCT_NAME,
-                "family": "Presidium",
+                "family": "Senacula",
                 "display_name": DISPLAY_NAME,
                 "version": __version__,
                 "credit": "made with ♥ by Ratul Roy (royal-programmer)",
                 "licence": "Apache-2.0",
-                "homepage": "https://presidiumdev.github.io/presidium-shapestudio/",
-                "source": "https://github.com/presidiumdev/presidium-shapestudio",
+                "homepage": "https://senacula.github.io/senacula-shapestudio/",
+                "source": "https://github.com/senacula/senacula-shapestudio",
                 "mcp_command": (
                     f"{sys.executable} cli serve"
                     if getattr(sys, "frozen", False)

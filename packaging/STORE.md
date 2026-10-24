@@ -14,7 +14,7 @@ certificate is built instead so the packaging path is exercised on every release
 ## Store steps, once
 
 1. In Partner Center (the same free individual account as Image Studio), create the app with
-   the name **Presidium Shape Studio**. Reserving the name is the trademark-relevant step.
+   the name **Senacula Shape Studio**. Reserving the name is the trademark-relevant step.
 2. Open *Product management → Product identity* and copy `Package/Identity/Name`,
    `Package/Identity/Publisher` and `Package/Properties/PublisherDisplayName`.
 3. Add them to this repository as Actions **variables**: `MSIX_IDENTITY_NAME`,
@@ -26,7 +26,7 @@ certificate is built instead so the packaging path is exercised on every release
 2. Partner Center → the app → new submission → *Packages* → upload the `.msix`.
 3. Listing: category *Developer tools* or *Photo & video*; the description is the hero text on
    the website; `internetClient` capability means a privacy policy URL is required:
-   https://presidiumdev.github.io/presidium-shapestudio/privacy.html. `runFullTrust`
+   https://senacula.github.io/senacula-shapestudio/privacy.html. `runFullTrust`
    justification: a PyInstaller desktop app that runs PyTorch locally and writes meshes under
    `%LOCALAPPDATA%\shapestudio`.
 

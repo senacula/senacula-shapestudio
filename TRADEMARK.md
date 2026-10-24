@@ -6,20 +6,22 @@ the Apache License says so explicitly.
 
 ## The marks
 
-- **Presidium**
-- **Presidium Shape Studio** (formerly "Shape Studio by Hivemind")
-- the Presidium mark (six seats around one table, the chair at the head) and the Shape Studio
+- **Senacula**
+- **Senacula Shape Studio** (earlier names: "Presidium Shape Studio", 0.1.2 to 0.1.7, and
+  "Shape Studio by Hivemind", 0.1.0 and 0.1.1; the earlier names identify the same project
+  and are not available to forks either)
+- the Senacula mark (six seats around one table, the chair at the head) and the Shape Studio
   variant with the cube on the table
 - the package name **presidium-shapestudio** on PyPI and the executable name **ShapeStudio**
 
-These are trademarks of Ratul Roy (GitHub: royal-programmer), creator of Presidium. They are
+These are trademarks of Ratul Roy (GitHub: royal-programmer), creator of Senacula. They are
 not registered marks yet; unregistered marks are still protected against passing off and
 confusion in most jurisdictions, and this policy records how they are used.
 
 ## What you may do without asking
 
 - Use, study, change, fork and redistribute the code under the Apache License.
-- Say that your work is **based on**, **a fork of**, or **compatible with** Presidium Shape
+- Say that your work is **based on**, **a fork of**, or **compatible with** Senacula Shape
   Studio. Truthful, descriptive references are always fine.
 - Keep the `NOTICE` file and the author lines in the source, which the licence requires.
 - Write articles, tutorials and reviews using the names to refer to this project.
@@ -28,7 +30,7 @@ confusion in most jurisdictions, and this policy records how they are used.
 
 - Shipping a fork, build, service or product **under the marks** above, or under a name or
   logo confusingly similar to them. A fork must get its own name.
-- Presenting a build as **official**, **verified** or **endorsed** by Presidium. Official
+- Presenting a build as **official**, **verified** or **endorsed** by Senacula. Official
   builds are only those published through the channels in `NOTICE`.
 - Using the marks in a company name, domain name, app-store listing or social handle.
 - Selling merchandise with the marks.
@@ -40,10 +42,10 @@ for community projects is normally given quickly.
 
 The models in `registry.py` carry a `verified` field that says exactly what the project has
 done with them: pinned by hash, licence checked, run end to end on which hardware. A fork may
-keep the list but may not describe models it adds as "verified by Presidium".
+keep the list but may not describe models it adds as "verified by Senacula".
 
 ## Attribution line
 
-Official builds carry the line **"Presidium Shape Studio · made with ♥ by Ratul Roy
+Official builds carry the line **"Senacula Shape Studio · made with ♥ by Ratul Roy
 (royal-programmer)"** in the app and on the website. Forks must not carry it unchanged; they
-should state their own maintainer and may add "based on Presidium Shape Studio".
+should state their own maintainer and may add "based on Senacula Shape Studio".

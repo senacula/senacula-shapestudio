@@ -25,7 +25,7 @@ from pathlib import Path
 from shapestudio import __version__
 from shapestudio.config import Settings
 
-REPO = "presidiumdev/presidium-shapestudio"
+REPO = "senacula/senacula-shapestudio"
 LATEST_URL = f"https://api.github.com/repos/{REPO}/releases/latest"
 RELEASES_URL = f"https://github.com/{REPO}/releases"
 CHECK_INTERVAL = 24 * 3600

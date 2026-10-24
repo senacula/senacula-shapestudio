@@ -1,4 +1,4 @@
-; Inno Setup script for Presidium Shape Studio.
+; Inno Setup script for Senacula Shape Studio.
 ; Compiled by the release workflow on windows-latest:
 ;   iscc /DMyAppVersion=0.3.4 /DSourceDir=..\dist\ShapeStudio /DOutDir=..\dist packaging\ShapeStudio.iss
 ; Installs per user by default (no administrator prompt; %LOCALAPPDATA%\Programs), registers the
@@ -14,10 +14,10 @@
   #define OutDir "..\dist"
 #endif
 
-#define MyAppName "Presidium Shape Studio"
+#define MyAppName "Senacula Shape Studio"
 #define MyAppShort "Shape Studio"
-#define MyAppPublisher "Presidium"
-#define MyAppURL "https://presidiumdev.github.io/presidium-shapestudio/"
+#define MyAppPublisher "Senacula"
+#define MyAppURL "https://senacula.github.io/senacula-shapestudio/"
 #define MyAppExeName "ShapeStudio.exe"
 
 [Setup]
@@ -27,10 +27,10 @@ AppVersion={#MyAppVersion}
 AppVerName={#MyAppName} {#MyAppVersion}
 AppPublisher={#MyAppPublisher}
 AppPublisherURL={#MyAppURL}
-AppSupportURL=https://github.com/presidiumdev/presidium-releases/issues
-AppUpdatesURL=https://github.com/presidiumdev/presidium-shapestudio/releases
+AppSupportURL=https://github.com/senacula/senacula-releases/issues
+AppUpdatesURL=https://github.com/senacula/senacula-shapestudio/releases
 AppCopyright=Copyright (C) 2026 Ratul Roy (royal-programmer) and the Hivemind contributors
-DefaultDirName={autopf}\Presidium Shape Studio
+DefaultDirName={autopf}\Senacula Shape Studio
 DefaultGroupName={#MyAppName}
 DisableProgramGroupPage=yes
 PrivilegesRequired=lowest

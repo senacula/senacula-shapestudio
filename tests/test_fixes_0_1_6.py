@@ -185,7 +185,7 @@ def test_laptop_first_run_writes_the_profile_and_keeps_the_source_name(studio, s
     assert client.post(f"/api/jobs/{jid}/mesh", json={"op": "explode"}).status_code == 400
     # the report bundle
     rep = client.get("/api/report").json()
-    assert "Presidium Shape Studio" in rep["body"] and rep["issues_url"].endswith("/issues/new")
+    assert "Senacula Shape Studio" in rep["body"] and rep["issues_url"].endswith("/issues/new")
     assert "Models installed: triposr" in rep["body"]
 
 

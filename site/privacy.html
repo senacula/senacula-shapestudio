@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Privacy · Presidium Shape Studio</title>
+<title>Privacy · Senacula Shape Studio</title>
 <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
 <style>
   :root { --bg: #0f1012; --ink: #f2f2f0; --ink2: #c9c9c4; --muted: #8f9096; --accent: #E8734A; }
@@ -13,9 +13,9 @@
 </style>
 </head>
 <body><div class="wrap">
-  <p class="muted"><a href="./">← Presidium Shape Studio</a></p>
+  <p class="muted"><a href="./">← Senacula Shape Studio</a></p>
   <h1>Privacy</h1>
-  <p>Presidium Shape Studio runs entirely on your computer. It has no account, no telemetry, no analytics and no server of its own.</p>
+  <p>Senacula Shape Studio runs entirely on your computer. It has no account, no telemetry, no analytics and no server of its own.</p>
   <h2>What leaves your computer</h2>
   <ul>
     <li><b>Model and runtime downloads</b>, only when you ask for them and approve the size: the studio fetches the pinned files from their original hosts (Hugging Face for TripoSR and TRELLIS, GitHub Releases for the background-removal models, download.pytorch.org for the CUDA build of PyTorch) and verifies their SHA-256. Those hosts see an ordinary download request from your IP address, as any browser download would.</li>
@@ -25,6 +25,6 @@
   <p>Nothing else connects anywhere. Your pictures, meshes, settings and job history stay in the studio's data folder on your disk (<code>%LOCALAPPDATA%\shapestudio</code> on Windows) and are yours to delete.</p>
   <h2>The MCP server</h2>
   <p>When an agent (Claude, Cursor, VS Code or another MCP client) uses the studio, that client decides what it sends to its own model provider; the studio itself only reads and writes files on your machine.</p>
-  <p class="muted">Contact: <a href="https://github.com/presidiumdev/presidium-releases/issues">GitHub issues (presidium-releases)</a>. Last updated 2026-10-23.</p>
+  <p class="muted">Contact: <a href="https://github.com/senacula/senacula-releases/issues">GitHub issues (senacula-releases)</a>. Last updated 2026-10-23.</p>
 </div></body>
 </html>

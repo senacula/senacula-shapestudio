@@ -29,7 +29,7 @@ def _hints(
     )
 
 
-INSTRUCTIONS = """Presidium Shape Studio: free, local, offline image-to-3D.
+INSTRUCTIONS = """Senacula Shape Studio: free, local, offline image-to-3D.
 
 Policy: quality is a setting, never a consequence. reconstruct() defaults to preset "best"
 (the finest surface grid) on the strongest permissively licensed model that fits this

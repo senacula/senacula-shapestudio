@@ -1,16 +1,16 @@
-# Presidium Shape Studio
+# Senacula Shape Studio
 
-<img src="site/assets/shape-tile.svg" width="96" height="96" alt="The Presidium Shape Studio mark" align="right">
+<img src="site/assets/shape-tile.svg" width="96" height="96" alt="The Senacula Shape Studio mark" align="right">
 
-**Website:** https://presidiumdev.github.io/presidium-shapestudio/ · **PyPI:** https://pypi.org/project/presidium-shapestudio/ · **Releases:** https://github.com/presidiumdev/presidium-shapestudio/releases
+**Website:** https://senacula.github.io/senacula-shapestudio/ · **PyPI:** https://pypi.org/project/presidium-shapestudio/ · **Releases:** https://github.com/senacula/senacula-shapestudio/releases
 
 A free, local image-to-3D studio and MCP server. One picture in, a textured mesh out (GLB
 and OBJ with vertex colours, plus a turntable PNG), with permissively licensed models on your
 own machine. A desktop app for Windows, macOS and Linux, a web UI, a command line, and an MCP
-server for Presidium, Claude, Cursor or any other agent. It runs on the CPU if that is all
+server for Senacula, Claude, Cursor or any other agent. It runs on the CPU if that is all
 there is, and uses an NVIDIA GPU when you have one.
 
-Part of the Presidium family, sibling of [Presidium Image Studio](https://github.com/gethivemind/hivemind-imagestudio),
+Part of the Senacula family, sibling of [Senacula Image Studio](https://github.com/gethivemind/hivemind-imagestudio),
 built on the same architecture and the same rules. Design: Hivemind ADR-051; brand: ADR-065 and 066. Licence:
 Apache-2.0.
 
@@ -88,7 +88,7 @@ unlock them. TRELLIS is budgeted at 16 GiB of GPU memory, the authors' figure.
 ## Install
 
 **Windows app:** download `ShapeStudio-<version>-Setup.exe` from the
-[latest release](https://github.com/presidiumdev/presidium-shapestudio/releases/latest) and run
+[latest release](https://github.com/senacula/senacula-shapestudio/releases/latest) and run
 it: Start menu entry, uninstall from Settings → Apps, no administrator rights. Prefer
 portable? `…-windows-x64.zip` is the same app: unzip, run `ShapeStudio.exe`. The build is not
 code-signed yet, so SmartScreen asks once per download ("More info" → "Run anyway"); the
@@ -175,7 +175,7 @@ official builds (see NOTICE and TRADEMARK.md).
   over-budget unlock, pause), projects, trash, Updates (consent-first daily check, Check
   now, Download and install on the Windows installer build), "Report a problem", about.
 
-Dark and light themes in the Presidium palette (Shape Studio coral #D5582F), phone-friendly layout, the Presidium spinner while a job runs.
+Dark and light themes in the Senacula palette (Shape Studio coral #D5582F), phone-friendly layout, the Senacula spinner while a job runs.
 
 ## MCP tools
 
@@ -199,7 +199,7 @@ Client configs for Claude Desktop, Claude Code, Cursor and VS Code are in `examp
 
 | Component | Licence |
 | --- | --- |
-| Presidium Shape Studio | Apache-2.0 |
+| Senacula Shape Studio | Apache-2.0 |
 | TripoSR weights (stabilityai/TripoSR) | MIT |
 | TripoSR code, vendored under `src/shapestudio/engine/tsr` (VAST-AI-Research/TripoSR) | MIT |
 | Attention blocks derived from Hugging Face diffusers | Apache-2.0 |
@@ -212,9 +212,9 @@ Client configs for Claude Desktop, Claude Code, Cursor and VS Code are in `examp
 | model-viewer web component (Google) | Apache-2.0 |
 
 The code is free (Apache-2.0, `LICENSE`, `NOTICE`, `third_party/`). The names "Hivemind",
-"Presidium Shape Studio" and "Presidium Shape Studio" and the logo identify the official
+"Senacula Shape Studio" and "Senacula Shape Studio" and the logo identify the official
 project and are not covered by the licence; the policy is in `TRADEMARK.md`. Official builds
-carry the line "Presidium Shape Studio · made with ♥ by Ratul Roy (royal-programmer)".
+carry the line "Senacula Shape Studio · made with ♥ by Ratul Roy (royal-programmer)".
 
 ## Development
 

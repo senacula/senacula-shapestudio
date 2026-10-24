@@ -4,6 +4,19 @@ All notable changes to Presidium Shape Studio. The format follows Keep a Changel
 follow semantic versioning. Official builds: GitHub Releases and the `presidium-shapestudio`
 package on PyPI.
 
+## Unreleased
+
+### Changed
+- The product family is renamed from Presidium to **Senacula** (ADR-068; PRESIDIUM has live
+  US class 42 marks). The product is now **Senacula Shape Studio**; "Presidium Shape Studio"
+  (0.1.2 to 0.1.7) and "Shape Studio by Hivemind" (0.1.0, 0.1.1) are its earlier names. The
+  repository is senacula/senacula-shapestudio (old URLs redirect), the website
+  https://senacula.github.io/senacula-shapestudio/, the issue tracker
+  senacula/senacula-releases. Unchanged on purpose: the PyPI name `presidium-shapestudio`
+  (a new name follows once its publisher is registered), the `shapestudio` command and
+  module, the data folder, the MSIX identity and the installer's AppId. Store posters, hero
+  images and box art regenerated with the new wordmark; mark and coral unchanged.
+
 ## 0.1.7 — 2026-10-23
 
 ### Added

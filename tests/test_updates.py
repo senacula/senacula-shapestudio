@@ -13,7 +13,7 @@ from shapestudio.ui import build_app
 
 RELEASE = {
     "tag_name": "v9.9.9",
-    "html_url": "https://github.com/presidiumdev/presidium-shapestudio/releases/tag/v9.9.9",
+    "html_url": "https://github.com/senacula/senacula-shapestudio/releases/tag/v9.9.9",
     "published_at": "2026-12-01T00:00:00Z",
     "body": "notes",
     "assets": [

@@ -1,12 +1,12 @@
 cff-version: 1.2.0
-message: "If you use Presidium Shape Studio, please cite it as below."
-title: "Presidium Shape Studio"
+message: "If you use Senacula Shape Studio, please cite it as below."
+title: "Senacula Shape Studio"
 type: software
 authors:
   - family-names: Roy
     given-names: Ratul
     alias: royal-programmer
-repository-code: "https://github.com/presidiumdev/presidium-shapestudio"
+repository-code: "https://github.com/senacula/senacula-shapestudio"
 license: Apache-2.0
 version: 0.1.7
 date-released: 2026-10-23

@@ -1,7 +1,7 @@
-"""The Presidium Shape Studio mark, drawn with Pillow from the family's SVG geometry
+"""The Senacula Shape Studio mark, drawn with Pillow from the family's SVG geometry
 (ADR-065): six seats around one table with the chair at the head; Shape Studio puts an
 isometric cube on the table. The poster template (dark ground, glow, lockup, tagline) is the
-family's (ADR-066), copied from Presidium Image Studio's brand module so the two products
+family's (ADR-066), copied from Senacula Image Studio's brand module so the two products
 share one layout."""
 
 # Copyright 2026 Ratul Roy (royal-programmer) and the Hivemind contributors
@@ -12,10 +12,10 @@ from __future__ import annotations
 import io
 from pathlib import Path
 
-FAMILY = "Presidium"
+FAMILY = "Senacula"
 PRODUCT = "Shape Studio"
 FULL_NAME = f"{FAMILY} {PRODUCT}"
-VIOLET = "#5B4FD1"  # Presidium
+VIOLET = "#5B4FD1"  # Senacula
 CORAL = "#D5582F"  # Shape Studio
 LIGHT = "#F4F4F5"
 GROUND = "#09090b"
@@ -121,7 +121,7 @@ def poster(
     tagline: tuple[str, str] = TAGLINE,
 ):
     """Store artwork on the dark ground (ADR-066): the mark in colour over a soft glow,
-    "Presidium" in medium weight at about 55% of the product size, the product name large and
+    "Senacula" in medium weight at about 55% of the product size, the product name large and
     regular, then a two-line tagline with the accent colour on the second line. Nothing sits
     within 8% of an edge. Tall (9:16), wide (16:9) and square (1:1) layouts."""
     from PIL import Image, ImageDraw

@@ -86,7 +86,7 @@ def main() -> int:
         ident, publisher, display = (
             "Hivemind.ShapeStudio",
             "CN=Hivemind Shape Studio Dev",
-            "Presidium (dev build)",
+            "Senacula (dev build)",
         )
 
     staging = DIST / "msix-staging"

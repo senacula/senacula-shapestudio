@@ -757,7 +757,7 @@ class Studio:
             z.writestr(
                 "project.json",
                 json.dumps(
-                    {**entry, "app": f"Presidium Shape Studio {__version__}", "meshes": manifest},
+                    {**entry, "app": f"Senacula Shape Studio {__version__}", "meshes": manifest},
                     indent=2,
                 ),
             )
@@ -1501,7 +1501,7 @@ class Studio:
             torch_line = f"not importable ({t['error']})"
         kind = " (packaged app)" if rt["frozen_app"] else f" (Python {rt['python']})"
         lines = [
-            f"Presidium Shape Studio {__version__}{kind}",
+            f"Senacula Shape Studio {__version__}{kind}",
             f"OS: {hw['os']} {hw['arch']}",
             f"CPU: {hw['cpu_name']} ({hw['physical_cores']} cores)",
             f"RAM: {hw['ram_total_gib']} GiB",
@@ -1530,7 +1530,7 @@ class Studio:
         return {
             "title": f"[Shape Studio {__version__}] {what}",
             "body": "\n".join(lines),
-            "issues_url": "https://github.com/presidiumdev/presidium-releases/issues/new",
+            "issues_url": "https://github.com/senacula/senacula-releases/issues/new",
             "job_id": job.id if job is not None else None,
         }
 
