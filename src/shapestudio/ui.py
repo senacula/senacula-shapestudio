@@ -31,35 +31,37 @@ FILE_KINDS = {
 
 
 BRAND = STATIC / "brand"
+BRAND_FILES = (
+    "shape-tile",
+    "shape-tile-48",
+    "shape-tile-24",
+    "shape-tile-16",
+    "shape-chrome",
+    "shape-mark",
+    "shape-mono",
+    "shape-mono-light",
+    "shape-spinner",
+)
 
 
-def _draw_icon(size: int) -> bytes:
-    """The Senacula Shape Studio tile (coral, light mark) as a PNG, drawn at 8x and
-    downsampled; same geometry as static/brand/shape-tile.svg from the brand kit."""
-    from PIL import Image, ImageDraw
+ICON_SIZES = (16, 20, 24, 32, 40, 48, 64, 96, 128, 180, 192, 256, 512)
 
-    s = size * 8
-    u = s / 64
-    img = Image.new("RGBA", (s, s), (0, 0, 0, 0))
-    d = ImageDraw.Draw(img)
-    d.rounded_rectangle((0, 0, s - 1, s - 1), radius=int(14 * u), fill="#D5582F")
-    ink = "#F4F4F5"
-    for cx, cy in ((53.1, 18.2), (58.3, 41), (43.7, 59.3), (20.3, 59.3), (5.7, 41), (10.9, 18.2)):
-        d.ellipse(((cx - 3.6) * u, (cy - 3.6) * u, (cx + 3.6) * u, (cy + 3.6) * u), fill=ink)
-    d.ellipse(((32 - 5.5) * u, (8 - 5.5) * u, (32 + 5.5) * u, (8 + 5.5) * u), fill=ink)
-    outline = [(32, 24), (42, 29.5), (42, 40.5), (32, 46), (22, 40.5), (22, 29.5)]
-    pts = [(x * u, y * u) for x, y in outline]
-    d.line([*pts, pts[0]], fill=ink, width=max(1, round(3 * u)), joint="curve")
-    for seg in ([(22, 29.5), (32, 35), (42, 29.5)], [(32, 35), (32, 46)]):
-        d.line(
-            [(x * u, y * u) for x, y in seg], fill=ink, width=max(1, round(2.6 * u)), joint="curve"
-        )
-    r = 1.5 * u
-    for x, y in [*outline, (22, 29.5), (42, 29.5), (32, 46)]:
-        d.ellipse((x * u - r, y * u - r, x * u + r, y * u + r), fill=ink)
-    out = io.BytesIO()
-    img.resize((size, size), Image.LANCZOS).save(out, "PNG", optimize=True)
-    return out.getvalue()
+
+def _icon_png(size: int) -> bytes:
+    """The tile at ``size`` px from the pre-rendered set (scripts/make_artwork.py draws each
+    size from the brand kit's file for that level); an in-between size is scaled down from
+    the next larger rendering, never up."""
+
+    from PIL import Image
+
+    pick = next((s for s in ICON_SIZES if s >= size), ICON_SIZES[-1])
+    p = BRAND / f"icon-{pick}.png"
+    if pick == size:
+        return p.read_bytes()
+    with Image.open(p) as im:
+        out = io.BytesIO()
+        im.convert("RGBA").resize((size, size), Image.LANCZOS).save(out, "PNG", optimize=True)
+        return out.getvalue()
 
 
 def _brand_svg(name: str) -> str:
@@ -122,13 +124,7 @@ def build_app(studio: Studio) -> Starlette:
 
     async def brand(request: Request) -> Response:
         name = request.path_params["name"]
-        if name not in (
-            "shape-tile",
-            "shape-mark",
-            "shape-mono",
-            "shape-mono-light",
-            "shape-spinner",
-        ):
+        if name not in BRAND_FILES:
             return JSONResponse({"error": "no such brand asset"}, status_code=404)
         return Response(_brand_svg(name), media_type="image/svg+xml")
 
@@ -137,7 +133,7 @@ def build_app(studio: Studio) -> Starlette:
     async def icon_png(request: Request) -> Response:
         size = max(16, min(1024, int(request.path_params["size"])))
         if size not in _png_icons:
-            _png_icons[size] = _draw_icon(size)
+            _png_icons[size] = _icon_png(size)
         return Response(_png_icons[size], media_type="image/png")
 
     async def about(_: Request) -> JSONResponse:

@@ -7,6 +7,12 @@ package on PyPI.
 ## Unreleased
 
 ### Changed
+- The mark, redrawn (ADR-070): a thin ring, six hollow seats, the presiding dais at the
+  bottom and Shape Studio's cube on the floor. Every raster asset (installer .ico, MSIX
+  tiles, Store display logos, posters, hero images, box art, website and app icons) is now
+  rendered from the brand kit's SVG for its size (large at 96 px and up, medium 40–95,
+  small 21–39, tiny at 20 and under) instead of one drawing scaled; the header and
+  favicon use the small and tiny levels.
 - The product family is renamed from Presidium to **Senacula** (ADR-068; PRESIDIUM has live
   US class 42 marks). The product is now **Senacula Shape Studio**; "Presidium Shape Studio"
   (0.1.2 to 0.1.7) and "Shape Studio by Hivemind" (0.1.0, 0.1.1) are its earlier names. The

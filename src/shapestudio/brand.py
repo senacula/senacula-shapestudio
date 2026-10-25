@@ -1,15 +1,15 @@
-"""The Senacula Shape Studio mark, drawn with Pillow from the family's SVG geometry
-(ADR-065): six seats around one table with the chair at the head; Shape Studio puts an
-isometric cube on the table. The poster template (dark ground, glow, lockup, tagline) is the
-family's (ADR-066), copied from Senacula Image Studio's brand module so the two products
-share one layout."""
+"""The Senacula Shape Studio poster template (dark ground, glow, lockup, tagline), the
+family's layout (ADR-066), shared with Image Studio. The mark itself is no longer drawn here:
+since ADR-070 it is the brand kit's SVG (a thin ring, six hollow seats, the presiding dais,
+and Shape Studio's cube on the floor), rendered at the right level per size by
+scripts/make_artwork.py; this module only composes the rendered mark into the artwork."""
 
 # Copyright 2026 Ratul Roy (royal-programmer) and the Hivemind contributors
 # SPDX-License-Identifier: Apache-2.0
 
 from __future__ import annotations
 
-import io
+from collections.abc import Callable
 from pathlib import Path
 
 FAMILY = "Senacula"
@@ -21,57 +21,7 @@ LIGHT = "#F4F4F5"
 GROUND = "#09090b"
 TAGLINE = ("Your own 3D studio.", "Free, local, honest.")
 
-SEATS = ((53.1, 18.2), (58.3, 41.0), (43.7, 59.3), (20.3, 59.3), (5.7, 41.0), (10.9, 18.2))
-CHAIR = (32.0, 8.0, 5.5)
-SEAT_R = 3.6
-CUBE_OUTLINE = ((32, 24), (42, 29.5), (42, 40.5), (32, 46), (22, 40.5), (22, 29.5))
-CUBE_OUTLINE_STROKE = 3.0
-CUBE_INNER = (((22, 29.5), (32, 35), (42, 29.5)), ((32, 35), (32, 46)))
-CUBE_INNER_STROKE = 2.6
-
-
-def draw_mark(size: int, colour: str = CORAL, tile: str | None = None, scale: float = 1.0):
-    """The mark as an RGBA Pillow image of ``size`` px, drawn at 4x and downsampled.
-    ``tile`` fills a rounded square behind a light mark (the app icon); ``scale`` shrinks the
-    mark inside the canvas."""
-    from PIL import Image, ImageDraw
-
-    s = size * 4
-    img = Image.new("RGBA", (s, s), (0, 0, 0, 0))
-    d = ImageDraw.Draw(img)
-    fg = LIGHT if tile else colour
-    if tile:
-        d.rounded_rectangle((0, 0, s - 1, s - 1), radius=int(s * 14 / 64), fill=tile)
-    u = s / 64 * scale
-    off = (s - 64 * u) / 2
-
-    def pt(x: float, y: float) -> tuple[float, float]:
-        return (off + x * u, off + y * u)
-
-    def circle(x: float, y: float, r: float) -> None:
-        cx, cy = pt(x, y)
-        d.ellipse((cx - r * u, cy - r * u, cx + r * u, cy + r * u), fill=fg)
-
-    def stroke(points, width_units: float) -> None:
-        pts = [pt(x, y) for x, y in points]
-        w = max(1, round(width_units * u))
-        d.line(pts, fill=fg, width=w, joint="curve")
-        for x, y in pts:  # round caps and joins
-            d.ellipse((x - w / 2, y - w / 2, x + w / 2, y + w / 2), fill=fg)
-
-    for x, y in SEATS:
-        circle(x, y, SEAT_R)
-    circle(*CHAIR)
-    stroke([*CUBE_OUTLINE, CUBE_OUTLINE[0]], CUBE_OUTLINE_STROKE)
-    for seg in CUBE_INNER:
-        stroke(seg, CUBE_INNER_STROKE)
-    return img.resize((size, size), Image.LANCZOS)
-
-
-def mark_png(size: int, colour: str = CORAL, tile: str | None = None) -> bytes:
-    out = io.BytesIO()
-    draw_mark(size, colour, tile).save(out, "PNG", optimize=True)
-    return out.getvalue()
+MarkRenderer = Callable[[int], object]  # size in px -> RGBA Pillow image of the colour mark
 
 
 def _font(size: int, bold: bool):
@@ -115,6 +65,7 @@ def _fit_font(draw, text: str, size: int, bold: bool, max_width: float):
 def poster(
     width: int,
     height: int,
+    render_mark: MarkRenderer,
     colour: str = CORAL,
     family: str = FAMILY,
     product: str = PRODUCT,
@@ -154,7 +105,7 @@ def poster(
         text_top = mark_c[1] + mark_size // 2 + int(height * 0.05)
         centre_x = width // 2
     _glow(img, mark_c, int(mark_size * 0.9), colour)
-    mark = draw_mark(mark_size, colour)
+    mark = render_mark(mark_size)
     img.alpha_composite(mark, (mark_c[0] - mark_size // 2, mark_c[1] - mark_size // 2))
 
     f_prod = _fit_font(d, product, product_px, False, text_w)
@@ -195,22 +146,21 @@ STORE_ARTWORK = {
 }
 
 
-def write_store_artwork(root: Path) -> list[Path]:
-    """The Store posters, hero images and box art under packaging/store-assets. The display
-    icons and MSIX tiles come from scripts/make_artwork.py and are left alone."""
+def write_store_artwork(root: Path, render_mark: MarkRenderer) -> list[Path]:
+    """The Store posters, hero images and box art under packaging/store-assets.
+    ``render_mark(size)`` returns the colour mark on transparent at ``size`` px (the kit's
+    shape-mark.svg rendered by scripts/make_artwork.py, which also makes the icons and tiles)."""
     store = root / "packaging" / "store-assets"
     store.mkdir(parents=True, exist_ok=True)
     written = []
     for name, (w, h) in STORE_ARTWORK.items():
         p = store / name
-        poster(w, h).save(p, "PNG", optimize=True)
+        poster(w, h, render_mark).save(p, "PNG", optimize=True)
         written.append(p)
     return written
 
 
 if __name__ == "__main__":
-    import sys
-
-    repo = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).resolve().parents[2]
-    for path in write_store_artwork(repo):
-        print(path.relative_to(repo))
+    raise SystemExit(
+        "run scripts/make_artwork.py: it renders the brand kit's SVGs and writes everything"
+    )
